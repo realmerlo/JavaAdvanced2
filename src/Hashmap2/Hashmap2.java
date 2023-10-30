@@ -17,8 +17,21 @@ public class Hashmap2 {
             mappa.put("TeamLead", student2);
             mappa.put("Boss", student3);
 
-        List<Student> value = new ArrayList<>(mappa.values());
-        Collections.sort(value);
-    }
+        List<Student> orderedStudent = new ArrayList<Student>(mappa.values());
+        Collections.sort(orderedStudent, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return s1.getNome().compareTo(s2.getNome());
+            }
+        });
+
+        for (Student s : orderedStudent) {
+            System.out.println(s);
+        }
+
+
+
+}
+
 }
 //Creare un hashmap prendere tutti i valori, ordinarli e stamparli
